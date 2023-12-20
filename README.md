@@ -4,6 +4,10 @@
 
 ---
 
+### 1. [12/20 연구노트](#[12/20-연구노트])
+
+---
+
 ### [12/20 연구노트]
 - 토이프로젝트(간단한 SNS 서비스)를 제작하기로 함
   - ```yarn init -y```  yarn workspace를 사용하기 위해 yarn 설치
@@ -20,4 +24,4 @@
     - ```{msgs.map(x => (``` msgs 배열을 순회하며
     - ```<MsgItem key={x.id}{...x}/>``` MsgItem컴포넌트로 렌더링하고 고유 키와 해당 속성이 전달
   - 스타일 적용 후 출력
-<img src="./img/1220.png" width="600">
+<center><img src="./img/1220.png" width="600"></center>
