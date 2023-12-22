@@ -1,4 +1,3 @@
-
 import { useRef } from 'react'
 
 const MsgInput = ({ mutate, text = '', id = undefined }) => {

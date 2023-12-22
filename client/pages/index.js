@@ -1,4 +1,3 @@
-
 import MsgList from "../components/MsgList";
 const Home = () => (
   <>
