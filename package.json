@@ -1,3 +1,18 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:00d1ac33fff673bc303d0ba3beaa8d5b632c745f69ac3650283560612d9a03ae
-size 362
+
+{
+  "name": "local-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/yugjin/toy.git",
+  "author": "yugjin <hyj029@naver.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "client": "yarn workspace client start",
+    "server": "yarn workspace server start"
+  }
+}

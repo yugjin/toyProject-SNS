@@ -1,3 +1,23 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:2e87cfb03a5f164202adf3108f9ed7d63fc1b5e205ee24967b7cce61a60086dd
-size 566
+
+import { useRef } from 'react'
+
+const MsgInput = ({ mutate, text = '', id = undefined }) => {
+  const textRef = useRef(null)
+
+  const onSubmit = e => {
+    e.preventDefault()
+    e.stopPropagation()
+    const text = textRef.current.value
+    textRef.current.value = ''
+    mutate(text, id)
+  }
+
+  return (
+    <form className="messages__input" onSubmit={onSubmit}>
+      <textarea ref={textRef} defaultValue={text} placeholder="내용을 입력하세요." />
+      <button type="submit">완료</button>
+    </form>
+  )
+}
+
+export default MsgInput
