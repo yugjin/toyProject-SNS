@@ -1,3 +1,10 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:3a080a33b080246fd306a78f8181c50465ee1e55b44bdd80b0bd123372e444a7
-size 146
+
+import MsgList from "../components/MsgList";
+const Home = () => (
+  <>
+    <h1>SIMPLE SNS</h1>
+    <MsgList/>
+  </>
+)
+
+export default Home
