@@ -1,6 +1,6 @@
 import MsgInput from './MsgInput'
 
-const MsgItem = ({ id, userId, timestamp, text, onUpdate, onDelete, isEditing, startEdit, myId }) => (
+const MsgItem = ({ id, userId, timestamp, text, onUpdate, onDelete, isEditing, startEdit, myId, user }) => (
   <li className="messages__item">
     <h3>
       {userId}{' '}
