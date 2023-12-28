@@ -11,21 +11,22 @@ context: 로그인한 사용자, DB Access 등의 중요한 정보들
 
 const messageResolver = {
   Query:  {
-    messages: (parent, args, {db}) => {
-      //console.log({ parent, args, context })
-      return db.messages
+    messages: (parent, {cursor = ''}, {db}) => {
+      const fromIndex = db.messages.findIndex(msg => msg.id === cursor) + 1
+      return db.messages?.slice(fromIndex, fromIndex + 15) || []
     },
     message: (parent, {id = ''}, {db}) => {
       return db.messages.find(msg => msg.id === id)
-    }
+    },
   },
   Mutation: {
     createMessage: (parent, {text, userId}, {db}) => {
+      if (!userId) throw Error('사용자가 없습니다.')
       const newMsg = {
         id: v4(),
         text,
         userId,
-        timestamp: Date.now()
+        timestamp: Date.now(),
       }
       db.messages.unshift(newMsg)
       setMsgs(db.messages)
@@ -49,7 +50,10 @@ const messageResolver = {
       setMsgs(db.messages)
       return id
     },
-  }
+  },
+  Message: {
+    user: (msg, args, { db }) => db.users[msg.userId],
+  },
 }
 
 export default messageResolver
